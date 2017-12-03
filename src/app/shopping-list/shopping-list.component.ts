@@ -5,7 +5,6 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
   selector: 'app-shopping-list',
   templateUrl: './shopping-list.component.html',
   styleUrls: ['./shopping-list.component.css'],
-  encapsulation: ViewEncapsulation.None
 })
 export class ShoppingListComponent implements OnInit {
   ingredients: Ingredient[] = [
@@ -16,6 +15,10 @@ export class ShoppingListComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+  }
+
+  onIngrientAdded(ingredient: Ingredient) {
+    this.ingredients.push(ingredient);
   }
 
 }

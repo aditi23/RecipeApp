@@ -1,4 +1,5 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation, EventEmitter } from '@angular/core';
+import { Recipe } from './recipe.model';
 
 @Component({
   selector: 'app-recipes',
@@ -7,10 +8,16 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
   encapsulation: ViewEncapsulation.None
 })
 export class RecipesComponent implements OnInit {
+  selectedRecipe: Recipe;
 
   constructor() { }
 
   ngOnInit() {
+  }
+
+  onClick(event: EventEmitter<Recipe>) {
+    console.log('event' + event);
+    console.log('selectedRecipe' + this.selectedRecipe);
   }
 
 }
