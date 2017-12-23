@@ -38,4 +38,8 @@ private recipes: Recipe[] = [
         this.shoppingListService.addIngredients(ingredients);
     }
 
+    getActiveRecipe(id: number) {
+        return this.recipes[id];
+    }
+
 }
