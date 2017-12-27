@@ -35,6 +35,11 @@ private recipes: Recipe[] = [
         return this.recipes.slice();
     }
 
+    setRecipe(recipes: Recipe[]) {
+        this.recipes = recipes;
+        this.recipeChanged.next(this.recipes.slice());
+    }
+
     onAddToShoppingListRecipes(ingredients: Ingredient[]) {
         this.shoppingListService.addIngredients(ingredients);
     }
