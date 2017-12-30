@@ -8,14 +8,18 @@ export class AuthService {
   constructor(private route: Router) { }
 
   authUser(email, passowrd) {
-    console.log('here');
-    firebase.auth().createUserWithEmailAndPassword(email, passowrd).catch(
+    firebase.auth().createUserWithEmailAndPassword(email, passowrd)
+    .then(
+      response => {
+        this.route.navigate(['/signin']);
+      }
+    )
+    .catch(
       error => console.log(error)
     );
   }
 
   signIn(email: string, passowrd: string) {
-    console.log('here');
     firebase.auth().signInWithEmailAndPassword(email, passowrd).then(
       response => {
         firebase.auth().currentUser.getToken().then(
